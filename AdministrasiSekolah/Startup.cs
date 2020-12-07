@@ -34,12 +34,9 @@ namespace AdministrasiSekolah
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
-            services.AddDefaultIdentity<IdentityUser>()
-                .AddEntityFrameworkStores<ApplicationDbContext>();
-
+            services.AddDbContext<Models.SekolahDBContext>(options =>options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddIdentity<IdentityUser, IdentityRole>().AddDefaultUI()
+.AddEntityFrameworkStores<Models.SekolahDBContext>().AddDefaultTokenProviders();
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 

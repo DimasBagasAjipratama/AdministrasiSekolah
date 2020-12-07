@@ -1,0 +1,60 @@
+﻿@model AdministrasiSekolah.Models.Parent
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Parent</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NamaIbu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NamaIbu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NamaAyah)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NamaAyah)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pekerjaan)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pekerjaan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PendapatanAyah)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PendapatanAyah)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.PendapatanIbu)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PendapatanIbu)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Password)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Password)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.IdUserNavigation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.IdUserNavigation.IdUser)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.IdParent">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

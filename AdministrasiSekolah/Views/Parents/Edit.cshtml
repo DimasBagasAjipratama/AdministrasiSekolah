@@ -1,0 +1,64 @@
+﻿@model AdministrasiSekolah.Models.Parent
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Parent</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="NamaIbu" class="control-label"></label>
+                <input asp-for="NamaIbu" class="form-control" />
+                <span asp-validation-for="NamaIbu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="NamaAyah" class="control-label"></label>
+                <input asp-for="NamaAyah" class="form-control" />
+                <span asp-validation-for="NamaAyah" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Pekerjaan" class="control-label"></label>
+                <input asp-for="Pekerjaan" class="form-control" />
+                <span asp-validation-for="Pekerjaan" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PendapatanAyah" class="control-label"></label>
+                <input asp-for="PendapatanAyah" class="form-control" />
+                <span asp-validation-for="PendapatanAyah" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PendapatanIbu" class="control-label"></label>
+                <input asp-for="PendapatanIbu" class="form-control" />
+                <span asp-validation-for="PendapatanIbu" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IdUser" class="control-label"></label>
+                <select asp-for="IdUser" class="form-control" asp-items="ViewBag.IdUser"></select>
+                <span asp-validation-for="IdUser" class="text-danger"></span>
+            </div>
+            <input type="hidden" asp-for="IdParent" />
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
