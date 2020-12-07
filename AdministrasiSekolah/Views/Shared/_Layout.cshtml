@@ -31,8 +31,15 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Admins" asp-action="Index">Admin</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Parents" asp-action="Index">Parent</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="Students" asp-action="Index">Student</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-controller="AccountUsers" asp-action="Index">AccountUser</a></li>
+                        </ul>
+                    </li>
                 </ul>
                 <partial name="_LoginPartial" />
             </div>
