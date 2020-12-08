@@ -29,16 +29,24 @@
         <a class="w3-bar-item w3-button" asp-area="" asp-controller="Parents" asp-action="Index">Parent</a>
         <a class="w3-bar-item w3-button" asp-area="" asp-controller="Students" asp-action="Index">Student</a>
         <a class="w3-bar-item w3-button" asp-area="" asp-controller="AccountUsers" asp-action="Index">AccountUser</a>
+
     </div>
+
+    
 
     <div id="main">
 
         <div class="w3-teal" style="display:flex">
             <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
-            <div class="w3-container">
-                <h1>Administrasi Sekolah</h1>
+            <div class="w3-container" style="display:flex">
+                <h1 style="margin-right:850px">Administrasi Sekolah </h1>
+                    <partial name="_LoginPartial" />
             </div>
+           
         </div>
+        
+
+
         <div style="width:90%; margin:auto;">
             @RenderBody()
             <footer>
@@ -47,7 +55,7 @@
 
         </div>
     </div>
-  
+
 
     <script>
         function w3_open() {
