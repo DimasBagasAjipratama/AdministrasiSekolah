@@ -18,25 +18,43 @@
     </environment>
 </head>
 <body style="padding-top:0px; padding-bottom:0px">
-    <div class="w3-sidebar w3-black w3-bar-block" style="width:20%">
+    <div class="w3-sidebar w3-light-blue w3-bar-block" style="width:20%">
         <h3 class="w3-bar-item">Administrasi Sekolah</h3>
         <a class="w3-bar-item w3-button" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
         <a class="w3-bar-item w3-button" asp-area="" asp-controller="Admins" asp-action="Index">Admin</a>
         <a class="w3-bar-item w3-button" asp-area="" asp-controller="Parents" asp-action="Index">Parent</a>
         <a class="w3-bar-item w3-button" asp-area="" asp-controller="Students" asp-action="Index">Student</a>
         <a class="w3-bar-item w3-button" asp-area="" asp-controller="AccountUsers" asp-action="Index">AccountUser</a>
-    </div> 
-
-    <div style="margin-left:20%">
-        <div class=" w3-container w3-teal">
-            <h1>Administrasi Sekolah</h1>
-        </div>
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2020 - AdministrasiSekolah</p>
-        </footer>
     </div>
+
+    <div id="main">
+
+        <div class="w3-teal" style="display:flex">
+            <button id="openNav" class="w3-button w3-teal w3-xlarge" onclick="w3_open()">&#9776;</button>
+            <div class="w3-container">
+                <h1>Administrasi Sekolah</h1>
+            </div>
+            @RenderBody()
+        </div>
+    <footer>
+        <p>&copy; 2020 - AdministrasiSekolah</p>
+    </footer>
+    </div>
+  
+
+    <script>
+        function w3_open() {
+            document.getElementById("main").style.marginLeft = "25%";
+            document.getElementById("mySidebar").style.width = "25%";
+            document.getElementById("mySidebar").style.display = "block";
+            document.getElementById("openNav").style.display = 'none';
+        }
+        function w3_close() {
+            document.getElementById("main").style.marginLeft = "0%";
+            document.getElementById("mySidebar").style.display = "none";
+            document.getElementById("openNav").style.display = "inline-block";
+        }
+    </script>
 
     <environment include="Development">
         <script src="~/lib/jquery/dist/jquery.js"></script>
@@ -60,5 +78,7 @@
     </environment>
 
     @RenderSection("Scripts", required: false)
+
+
 </body>
 </html>
