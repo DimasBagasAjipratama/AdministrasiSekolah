@@ -39,7 +39,7 @@
                 @Html.DisplayName("Nama Ayah")
             </th>
             <th>
-                @Html.DisplayName("IdUser")
+                @Html.DisplayName("Username")
             </th>
             <th></th>
         </tr>
@@ -69,10 +69,10 @@
                 @Html.DisplayFor(modelItem => item.Password)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdParentNavigation.IdParent)
+                @Html.DisplayFor(modelItem => item.IdParentNavigation.NamaAyah)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.IdUserNavigation.IdUser)
+                @Html.DisplayFor(modelItem => item.IdUserNavigation.Username)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Nis">Edit</a> |
