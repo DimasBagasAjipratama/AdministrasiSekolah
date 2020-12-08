@@ -8,6 +8,7 @@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="~/css/site.css" />
+        <link rel="stylesheet" href="~/css/w3.css">
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
@@ -16,39 +17,19 @@
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
 </head>
-<body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">AdministrasiSekolah</a>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" asp-area="" asp-controller="Admins" asp-action="Index">Admin</a></li>
-                            <li><a class="dropdown-item" asp-area="" asp-controller="Parents" asp-action="Index">Parent</a></li>
-                            <li><a class="dropdown-item" asp-area="" asp-controller="Students" asp-action="Index">Student</a></li>
-                            <li><a class="dropdown-item" asp-area="" asp-controller="AccountUsers" asp-action="Index">AccountUser</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <partial name="_LoginPartial" />
-            </div>
+<body style="padding-top:0px; padding-bottom:0px">
+    <div class="w3-sidebar w3-light-blue w3-bar-block" style="width:20%">
+        <h3 class="w3-bar-item">Administrasi Sekolah</h3>
+        <a class="w3-bar-item w3-button" asp-area="" asp-controller="Admins" asp-action="Index">Admin</a>
+        <a class="w3-bar-item w3-button" asp-area="" asp-controller="Parents" asp-action="Index">Parent</a>
+        <a class="w3-bar-item w3-button" asp-area="" asp-controller="Students" asp-action="Index">Student</a>
+        <a class="w3-bar-item w3-button" asp-area="" asp-controller="AccountUsers" asp-action="Index">AccountUser</a>
+    </div> 
+
+    <div style="margin-left:20%">
+        <div class=" w3-container w3-teal">
+            <h1>Administrasi Sekolah</h1>
         </div>
-    </nav>
-
-    <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
