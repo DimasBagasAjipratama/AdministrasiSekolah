@@ -45,6 +45,9 @@
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.Nis)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.NamaStudent)
             </td>
             <td>
