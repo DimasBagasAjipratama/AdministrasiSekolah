@@ -6,6 +6,15 @@
     Layout = null;
 }
 
+@using (Html.BeginForm("index","kendaraan", FormMethod.Get))
+{
+    <p>
+        NamaStudent: @Html.DropDownList("ktsd","NamaStudent")
+        Cari Data : @Html.TextBox("searchString")
+        <input type="submit" value="Filter"/>
+    </p>
+}
+
 <!DOCTYPE html>
 <html>
 <head>

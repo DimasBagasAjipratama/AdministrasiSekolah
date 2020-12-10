@@ -19,10 +19,34 @@ namespace AdministrasiSekolah.Controllers
         }
 
         // GET: Students
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string ktsd, string searchString)
         {
+            var ktsdList = new List<string>();
+            var ktsdQuery = from d in _context.Student select d.NamaStudent;
+
+            ktsdList.AddRange(ktsdQuery.Distinct());
+
+            ViewBag.ktsd = new SelectList(ktsdList);
+
+            var menu = from m in _context.Student.Include(k => k.NamaStudent) select m;
+
+            if (!string.IsNullOrEmpty(ktsd))
+			{
+                menu = menu.Where(x => x.NamaStudent == ktsd);
+			}
+
+            if (!string.IsNullOrEmpty(searchString))
+			{
+                menu = menu.Where(s => s.NamaStudent.Contains(searchString));
+			}
+
             var sekolahDBContext = _context.Student.Include(s => s.IdParentNavigation).Include(s => s.IdUserNavigation);
             return View(await sekolahDBContext.ToListAsync());
+
+
+
+
+           
         }
 
         // GET: Students/Details/5
