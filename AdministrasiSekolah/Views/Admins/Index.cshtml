@@ -31,9 +31,9 @@
                 @Html.DisplayFor(modelItem => item.Password)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.IdAdmin">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.IdAdmin">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.IdAdmin">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.IdAdmin"><i class="material-icons">create</i> </a> |
+                <a asp-action="Details" asp-route-id="@item.IdAdmin"><i class="material-icons">list_alt</i></a> |
+                <a asp-action="Delete" asp-route-id="@item.IdAdmin"><i class="material-icons">delete</i></a>
             </td>
         </tr>
 }
