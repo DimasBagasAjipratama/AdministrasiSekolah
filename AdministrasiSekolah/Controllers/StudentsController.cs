@@ -48,8 +48,8 @@ namespace AdministrasiSekolah.Controllers
         // GET: Students/Create
         public IActionResult Create()
         {
-            ViewData["IdParent"] = new SelectList(_context.Parent, "IdParent", "IdParent");
-            ViewData["IdUser"] = new SelectList(_context.AccountUser, "IdUser", "IdUser");
+            ViewData["IdParent"] = new SelectList(_context.Parent, "IdParent", "NamaAyah");
+            ViewData["IdUser"] = new SelectList(_context.AccountUser, "IdUser", "Username");
             return View();
         }
 
