@@ -6,14 +6,6 @@
     Layout = null;
 }
 
-@using (Html.BeginForm("index","kendaraan", FormMethod.Get))
-{
-    <p>
-        NamaStudent: @Html.DropDownList("ktsd","NamaStudent")
-        Cari Data : @Html.TextBox("searchString")
-        <input type="submit" value="Filter"/>
-    </p>
-}
 
 <!DOCTYPE html>
 <html>
@@ -49,8 +41,8 @@
         <br />
         <a class="w3-bar-item w3-button" asp-area="" asp-controller="Login">Logout</a>
 
-
     </div>
+
 
 
 
@@ -64,14 +56,18 @@
             </div>
 
         </div>
-
-
-
         <div style="width:90%; margin:auto;">
             <h2 class="text-center" style="font-size:64px">Data Siswa</h2>
             <br />
             <br />
-            <br />
+            @using (Html.BeginForm("index", "kendaraan", FormMethod.Get))
+            {
+                <p>
+                    NamaStudent: @Html.DropDownList("ktsd", "NamaStudent")
+                    Cari Data : @Html.TextBox("searchString")
+                    <input type="submit" value="Filter" />
+                </p>
+            }
             <table class="table table-striped" border="1">
                 <thead class="thead-dark">
                     <tr>
