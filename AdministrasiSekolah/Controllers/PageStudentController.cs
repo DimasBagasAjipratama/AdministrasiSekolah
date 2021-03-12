@@ -9,9 +9,19 @@ using AdministrasiSekolah.Models;
 
 namespace AdministrasiSekolah.Controllers
 {
+    ///<summary>
+    ///class ini digunakan sebagai controller untuk bagian student
+    ///</summary>
     public class PageStudentsController : Controller
     {
+        /// <summary>
+        /// inisiasi dari skolah dbcontext
+        /// </summary>
         private readonly SekolahDBContext _context;
+        /// <summary>
+        /// method student contrlloller
+        /// </summary>
+        /// <param name="context">parameter database yang digunkan</param>
 
         public PageStudentsController(SekolahDBContext context)
         {
@@ -19,6 +29,10 @@ namespace AdministrasiSekolah.Controllers
         }
 
         // GET: Students
+        /// <summary>
+        /// method ini digunakan untuk mendapatkan data student dari database
+        /// </summary>
+        /// <returns> method ini akan mengebalikan list student yang telah tercatat di dalam database</returns>
         public async Task<IActionResult> Index(string ktsd, string searchString)
         {
             var ktsdList = new List<string>();
@@ -50,6 +64,11 @@ namespace AdministrasiSekolah.Controllers
         }
 
         // GET: Students/Details/5
+        /// <summary>
+        /// method ini digunakan untuk mendapatkan data detail dari student
+        /// </summary>
+        /// <param name="id"> parameter id digunakan untuk memilih id student yang akan dilihat secara detail</param>
+        /// <returns> mengembalikan data parent yang telah dipilih</returns>
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -70,6 +89,10 @@ namespace AdministrasiSekolah.Controllers
         }
 
         // GET: Students/Create
+        /// <summary>
+        /// method ini digunakan untuk mendapatkan 
+        /// </summary>
+        /// <returns>mengembalikan view</returns>
         public IActionResult Create()
         {
             ViewData["IdParent"] = new SelectList(_context.Parent, "IdParent", "NamaAyah");
@@ -80,6 +103,11 @@ namespace AdministrasiSekolah.Controllers
         // POST: Students/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+         /// <summary>
+        /// method ini digunakan untuk menahkan data student ke dalam data siswa
+        /// </summary>
+        /// <param name="parent">parameter student merupakan nama dari siswa tersebut</param>
+        /// <returns>mengembalikan view student</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Nis,NamaStudent,Kelas,Angkatan,Gender,Alamat,Password,IdUser,IdParent")] Student student)
@@ -96,6 +124,11 @@ namespace AdministrasiSekolah.Controllers
         }
 
         // GET: Students/Edit/5
+         /// <summary>
+        /// method untuk mendapatkan data student dari database untuk dilakukan perubahan
+        /// </summary>
+        /// <param name="id"> parameter id merupakan parameter dari id user</param>
+        /// <returns>mengembalikan data student</returns>
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -116,6 +149,12 @@ namespace AdministrasiSekolah.Controllers
         // POST: Students/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        /// <summary>
+        /// method ini untuk menambahkan hasil perubahan data ke dalam database khususnya pada student
+        /// </summary>
+        /// <param name="id">merupakan id user yang akan dirubah datanya</param>
+        /// <param name="parent">parameter parent merupakan data student yang akan dirubah</param>
+        /// <returns>akan megembalikan data</returns>
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(string id, [Bind("Nis,NamaStudent,Kelas,Angkatan,Gender,Alamat,Password,IdUser,IdParent")] Student student)
@@ -151,6 +190,11 @@ namespace AdministrasiSekolah.Controllers
         }
 
         // GET: Students/Delete/5
+        // <summary>
+        /// method ini digunakan untuk mengambil data student yang akan dihapus dari database
+        /// </summary>
+        /// <param name="id"> parameter id digunakan untuk memilih data student mana yang akan dihapus</param>
+        /// <returns>mengembalikan data student</returns>
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -171,6 +215,11 @@ namespace AdministrasiSekolah.Controllers
         }
 
         // POST: Students/Delete/5
+        /// <summary>
+        /// method ini digunakan untuk mengambahkan atau mengesekusi data student yang akan dihapus dari database
+        /// </summary>
+        /// <param name="id">parameter id digunakan untuk memilih data student mana yang akan dihapus dari database</param>
+        /// <returns>akan mengembalikan data student</returns>
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)
@@ -180,7 +229,11 @@ namespace AdministrasiSekolah.Controllers
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
-
+        /// <summary>
+        /// method ini untuk mengetahui ada atau tidaknya data student dalam database
+        /// </summary>
+        /// <param name="id">parameter id digunakan untuk mencek data dalam database</param>
+        /// <returns>true or false</returns>
         private bool StudentExists(string id)
         {
             return _context.Student.Any(e => e.Nis == id);
